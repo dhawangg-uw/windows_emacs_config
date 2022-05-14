@@ -1,4 +1,5 @@
 ; Install msys64 and install aspell tools inside
+; https://www.msys2.org/
 (setq-default ispell-program-name "C:/msys64/mingw64/bin/aspell.exe")
 (tool-bar-mode -1)
 
