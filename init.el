@@ -49,6 +49,12 @@
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
 
+;; (define-key c++-mode-map (kbd "<down>") 'c-end-of-defun)
+;; (define-key c++-mode-map (kbd "<up>") 'c-beginning-of-defun)
+
+(define-key global-map (kbd "<down>") 'end-of-defun)
+(define-key global-map (kbd "<up>") 'beginning-of-defun)
+
 (setq visible-bell 1)
 
 ;; (define-key xah-fly-command-map (kbd "<f8>") 'backward-sentence)
