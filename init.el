@@ -34,7 +34,7 @@
 (define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
 (define-key xah-fly-command-map (kbd "z") 'make-frame-command)
 (define-key xah-fly-command-map (kbd "<kp-0>") 'delete-frame)
-
+(global-set-key (kbd "<f8>") 'flyspell-correct-word-before-point)
 (define-key xah-fly-command-map (kbd "<kp-3>") 'xah-pop-local-mark-ring)
 
 (define-key key-translation-map (kbd "<apps>") (kbd "<menu>"))
@@ -48,6 +48,8 @@
 
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
+
+(define-key global-map (kbd "M-'") 'xah-comment-dwim)
 
 ;; (define-key c++-mode-map (kbd "<down>") 'c-end-of-defun)
 ;; (define-key c++-mode-map (kbd "<up>") 'c-beginning-of-defun)
