@@ -31,7 +31,7 @@
 (define-key xah-fly-command-map (kbd "<kp-5>") 'org-next-item)
 (define-key xah-fly-command-map (kbd "<kp-7>") 'org-previous-visible-heading)
 (define-key xah-fly-command-map (kbd "<kp-4>") 'org-next-visible-heading)
-(define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
+;; (define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
 (define-key xah-fly-command-map (kbd "z") 'make-frame-command)
 (define-key xah-fly-command-map (kbd "<kp-0>") 'delete-frame)
 (global-set-key (kbd "<f8>") 'flyspell-correct-word-before-point)
@@ -46,7 +46,11 @@
 (define-key xah-fly-command-map (kbd "<kp-9>") 'org-backward-heading-same-level)
 (define-key xah-fly-command-map (kbd "<kp-6>") 'org-forward-heading-same-level)
 
-(define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
+;; required as org not evaluated immediately
+;; https://list.orgmode.org/87zk9aj6y7@ch.ristopher.com/T/
+(require 'org-install)
+(eval-after-load 'org
+  '(define-key org-mode-map (kbd "<f2>") 'org-export-dispatch))
 
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
@@ -59,6 +63,9 @@
 (define-key global-map (kbd "<down>") 'end-of-defun)
 (define-key global-map (kbd "<up>") 'beginning-of-defun)
 (global-set-key (kbd "<insert>") 'keyboard-quit)
+
+;; (define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
+(global-set-key (kbd "\\") 'dabbrev-expand)
 
 (setq visible-bell 1)
 
