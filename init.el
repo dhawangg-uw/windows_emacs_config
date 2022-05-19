@@ -34,7 +34,7 @@
 ;; (define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
 (define-key xah-fly-command-map (kbd "z") 'make-frame-command)
 (define-key xah-fly-command-map (kbd "<kp-0>") 'delete-frame)
-(global-set-key (kbd "<f8>") 'flyspell-correct-word-before-point)
+;; (global-set-key (kbd "<f8>") 'flyspell-correct-word-before-point)
 (define-key xah-fly-command-map (kbd "<kp-3>") 'xah-pop-local-mark-ring)
 
 (define-key key-translation-map (kbd "<apps>") (kbd "<menu>"))
@@ -48,9 +48,11 @@
 
 ;; required as org not evaluated immediately
 ;; https://list.orgmode.org/87zk9aj6y7@ch.ristopher.com/T/
+;; https://emacs.stackexchange.com/questions/12487/when-should-i-use-with-eval-after-load-in-my-configuration-files
 (require 'org-install)
-(eval-after-load 'org
-  '(define-key org-mode-map (kbd "<f2>") 'org-export-dispatch))
+(with-eval-after-load 'org
+ (define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
+ (define-key org-mode-map (kbd "<f8>") 'org-insert-structure-template))
 
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
