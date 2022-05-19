@@ -46,6 +46,8 @@
 (define-key xah-fly-command-map (kbd "<kp-9>") 'org-backward-heading-same-level)
 (define-key xah-fly-command-map (kbd "<kp-6>") 'org-forward-heading-same-level)
 
+(define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
+
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
 
