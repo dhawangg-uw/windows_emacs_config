@@ -48,11 +48,12 @@
 
 ;; required as org not evaluated immediately
 ;; https://list.orgmode.org/87zk9aj6y7@ch.ristopher.com/T/
-;; https://emacs.stackexchange.com/questions/12487/when-should-i-use-with-eval-after-load-in-my-configuration-files
+;; https://emacs.stackexchange.com/questions/12487/when should i use with eval after load in my configuration files
 (require 'org-install)
 (with-eval-after-load 'org
  (define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
- (define-key org-mode-map (kbd "<f8>") 'org-insert-structure-template))
+ (define-key org-mode-map (kbd "<f8>") 'org-insert-structure-template)
+ (define-key org-mode-map (kbd "<f10>") 'org-edit-special))
 
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
