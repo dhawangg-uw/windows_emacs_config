@@ -53,7 +53,9 @@
 (with-eval-after-load 'org
  (define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
  (define-key org-mode-map (kbd "<f8>") 'org-insert-structure-template)
- (define-key org-mode-map (kbd "<f10>") 'org-edit-special))
+ (define-key org-mode-map (kbd "<f10>") 'org-edit-special)
+ (define-key org-mode-map (kbd "<next>") 'org-next-block)
+ (define-key org-mode-map (kbd "<prior>") 'org-previous-block))
 
 (global-set-key (kbd "<f5>") 'backward-sentence)
 (global-set-key (kbd "<f6>") 'forward-sentence)
