@@ -54,6 +54,7 @@
 
 (define-key global-map (kbd "<down>") 'end-of-defun)
 (define-key global-map (kbd "<up>") 'beginning-of-defun)
+(global-set-key (kbd "<insert>") 'keyboard-quit)
 
 (setq visible-bell 1)
 
