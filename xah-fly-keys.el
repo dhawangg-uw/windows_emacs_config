@@ -1886,6 +1886,7 @@ Version: 2017-01-17 2021-08-12"
   "Insert a form feed char (codepoint 12)"
   (interactive)
   ;; (insert "\n\u000c\n")
+  ;; HACK: done for line break in orgmode
   (insert "\\\\"))
 
 (defun xah-show-formfeed-as-line ()
