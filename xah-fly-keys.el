@@ -1839,12 +1839,12 @@ Version: 2017-01-17 2021-08-12"
 
 ;; hack for org mode
 (defun xah-insert-brace () (interactive) (xah-insert-bracket-pair "~" "~") )
-(defun xah-insert-angle-bracket () (interactive) (xah-insert-bracket-pair "*" "*"))
+(defun xah-insert-angle-bracket () (interactive) (xah-insert-bracket-pair "<" ">"))
 
 (defun xah-insert-double-curly-quote () (interactive) (xah-insert-bracket-pair "“" "”") )
 (defun xah-insert-curly-single-quote () (interactive) (xah-insert-bracket-pair "‘" "’") )
 (defun xah-insert-single-angle-quote () (interactive) (xah-insert-bracket-pair "‹" "›") )
-(defun xah-insert-double-angle-quote () (interactive) (xah-insert-bracket-pair "«" "»") )
+(defun xah-insert-double-angle-quote () (interactive) (xah-insert-bracket-pair "*" "*") )
 (defun xah-insert-ascii-double-quote () (interactive) (xah-insert-bracket-pair "\"" "\"") )
 (defun xah-insert-ascii-single-quote () (interactive) (xah-insert-bracket-pair "'" "'") )
 (defun xah-insert-emacs-quote () (interactive) (xah-insert-bracket-pair "`" "'") )
