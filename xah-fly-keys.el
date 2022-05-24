@@ -1850,7 +1850,7 @@ Version: 2017-01-17 2021-08-12"
 (defun xah-insert-emacs-quote () (interactive) (xah-insert-bracket-pair "`" "'") )
 (defun xah-insert-corner-bracket () (interactive) (xah-insert-bracket-pair "「" "」" ) )
 (defun xah-insert-white-corner-bracket () (interactive) (xah-insert-bracket-pair "『" "』") )
-(defun xah-insert-double-angle-bracket () (interactive) (xah-insert-bracket-pair "《" "》") )
+(defun xah-insert-double-angle-bracket () (interactive) (xah-insert-bracket-pair "/" "/") )
 (defun xah-insert-white-lenticular-bracket () (interactive) (xah-insert-bracket-pair "〖" "〗") )
 (defun xah-insert-black-lenticular-bracket () (interactive) (xah-insert-bracket-pair "【" "】") )
 (defun xah-insert-tortoise-shell-bracket () (interactive) (xah-insert-bracket-pair "〔" "〕" ) )
