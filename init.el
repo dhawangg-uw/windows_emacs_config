@@ -51,27 +51,6 @@
 ;; https://emacs.stackexchange.com/questions/12487/when should i use with eval after load in my configuration files
 (require 'org-install)
 (with-eval-after-load 'org
- (define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
- (define-key org-mode-map (kbd "<f8>") 'org-insert-structure-template)
- (define-key org-mode-map (kbd "<f10>") 'org-edit-special)
- (define-key org-mode-map (kbd "<next>") 'org-next-block)
- (define-key org-mode-map (kbd "<prior>") 'org-previous-block))
-
-(global-set-key (kbd "<f5>") 'backward-sentence)
-(global-set-key (kbd "<f6>") 'forward-sentence)
-
-(define-key global-map (kbd "M-'") 'xah-comment-dwim)
-
-;; (define-key c++-mode-map (kbd "<down>") 'c-end-of-defun)
-;; (define-key c++-mode-map (kbd "<up>") 'c-beginning-of-defun)
-
-(define-key global-map (kbd "<down>") 'end-of-defun)
-(define-key global-map (kbd "<up>") 'beginning-of-defun)
-(global-set-key (kbd "<insert>") 'keyboard-quit)
-
-;; (define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
-(global-set-key (kbd "\\") 'dabbrev-expand)
-
 (defun zp/org-fold (&optional keep-position)
   (let ((indirectp (not (buffer-file-name)))
         (org-startup-folded 'overview))
@@ -204,8 +183,33 @@ the entire buffer."
     (when arg
       (font-lock-fontify-buffer))))
 
-(define-key org-mode-map (kbd "<f8>") 'zp/org-narrow-backwards)
-(define-key org-mode-map (kbd "<f9>") 'zp/org-narrow-forwards)
+
+
+  
+  (define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
+  (define-key org-mode-map (kbd "<f8>") 'org-insert-structure-template)
+  (define-key org-mode-map (kbd "<f10>") 'org-edit-special)
+  (define-key org-mode-map (kbd "<next>") 'org-next-block)
+  (define-key org-mode-map (kbd "<prior>") 'org-previous-block)
+
+  (define-key org-mode-map (kbd "<f8>") 'zp/org-narrow-backwards)
+  (define-key org-mode-map (kbd "<f9>") 'zp/org-narrow-forwards)
+  (define-key org-mode-map (kbd "<f12>") 'zp/org-narrow-up-heading))
+
+(global-set-key (kbd "<f5>") 'backward-sentence)
+(global-set-key (kbd "<f6>") 'forward-sentence)
+
+(define-key global-map (kbd "M-'") 'xah-comment-dwim)
+
+;; (define-key c++-mode-map (kbd "<down>") 'c-end-of-defun)
+;; (define-key c++-mode-map (kbd "<up>") 'c-beginning-of-defun)
+
+(define-key global-map (kbd "<down>") 'end-of-defun)
+(define-key global-map (kbd "<up>") 'beginning-of-defun)
+(global-set-key (kbd "<insert>") 'keyboard-quit)
+
+;; (define-key xah-fly-insert-map (kbd "\\") 'xah-fly-command-mode-activate)
+(global-set-key (kbd "\\") 'dabbrev-expand)
 
 (setq visible-bell 1)
 
