@@ -5,11 +5,14 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/lisp/expand-region")
+(add-to-list 'load-path "~/.emacs.d/lisp/xah-get-thing")
 
 (require 'which-key)
 (which-key-mode 1)
 
 (require 'xah-elisp-mode)
+
+(require 'xah-get-thing)
 
 (require 'xah-fly-keys)
 (xah-fly-keys-set-layout "qwerty") ; required
@@ -45,6 +48,8 @@
 
 (define-key xah-fly-command-map (kbd "<kp-9>") 'org-backward-heading-same-level)
 (define-key xah-fly-command-map (kbd "<kp-6>") 'org-forward-heading-same-level)
+
+(define-key xah-fly-command-map (kbd "<f10>") 'flyspell-correct-word-before-point)
 
 ;; required as org not evaluated immediately
 ;; https://list.orgmode.org/87zk9aj6y7@ch.ristopher.com/T/
@@ -200,6 +205,55 @@ the entire buffer."
 (global-set-key (kbd "<f6>") 'forward-sentence)
 
 (define-key global-map (kbd "M-'") 'xah-comment-dwim)
+
+(defun dgg-escape-quotes ($var)
+  "DOCSTRING"
+  (interactive)
+  (setq $var (concat "'" (mapconcat 'identity (mapcar 
+					       (lambda (x)
+						 (if (string-match "\\ " x)
+						     (concat "\"" x "\"")
+						   x))
+					       (split-string test "/")) "/") "'")))
+
+(defun xah-html-open-in-chrome-browser ()
+  "Open the current file or `dired' marked files in Google Chrome browser.
+Work in Windows, macOS, linux.
+URL `http://xahlee.info/emacs/emacs/emacs_dired_open_file_in_ext_apps.html'
+Version 2019-11-10"
+  (interactive)
+  (let* (
+         ($file-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         ($do-it-p (if (<= (length $file-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+    (when $do-it-p
+      (cond
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda ($fpath)
+           (shell-command
+            (format "open -a /Applications/Google\\ Chrome.app \"%s\"" (dgg-escape-quotes $fpath))))
+         $file-list))
+       ((string-equal system-type "windows-nt")
+        ;; "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" 2019-11-09
+        (let ((process-connection-type nil))
+          (mapc
+           (lambda ($fpath)
+             (start-process "" nil "powershell" "start-process" "chrome" (dgg-escape-quotes $fpath) ))
+           $file-list)))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda ($fpath)
+           (shell-command (format "google-chrome-stable \"%s\"" $fpath)))
+         $file-list))))))
+
+
+
+(define-key global-map (kbd "<C-return>") 'xah-html-open-in-chrome-browser)
 
 ;; (define-key c++-mode-map (kbd "<down>") 'c-end-of-defun)
 ;; (define-key c++-mode-map (kbd "<up>") 'c-beginning-of-defun)
