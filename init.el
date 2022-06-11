@@ -6,6 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/lisp/expand-region")
 (add-to-list 'load-path "~/.emacs.d/lisp/xah-get-thing")
+(add-to-list 'load-path "~/../../sources/emacs/lisp")
 
 (require 'which-key)
 (which-key-mode 1)
@@ -28,6 +29,8 @@
 
 ;; https://pragmaticemacs.wordpress.com/2015/05/11/move-to-startend-of-line-or-sentence/
 (setq sentence-end-double-space nil)
+
+(require 'dgg-xah-toggle-letter-case)
 
 ;; keybindings
 (define-key xah-fly-command-map (kbd "<kp-8>") 'org-previous-item)
