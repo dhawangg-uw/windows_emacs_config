@@ -214,7 +214,7 @@ the entire buffer."
 						 (if (string-match "\\ " x)
 						     (concat "\"" x "\"")
 						   x))
-					       (split-string test "/")) "/") "'")))
+					       (split-string $var "/")) "/") "'")))
 
 (defun xah-html-open-in-chrome-browser ()
   "Open the current file or `dired' marked files in Google Chrome browser.
@@ -251,9 +251,7 @@ Version 2019-11-10"
            (shell-command (format "google-chrome-stable \"%s\"" $fpath)))
          $file-list))))))
 
-
-
-(define-key global-map (kbd "<C-return>") 'xah-html-open-in-chrome-browser)
+(define-key global-map (kbd "C-o") 'xah-html-open-in-chrome-browser)
 
 ;; (define-key c++-mode-map (kbd "<down>") 'c-end-of-defun)
 ;; (define-key c++-mode-map (kbd "<up>") 'c-beginning-of-defun)
