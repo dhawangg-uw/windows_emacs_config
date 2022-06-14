@@ -64,7 +64,6 @@ Version: 2020-06-26"
       (dgg-add-possessive-append $p1 $p2 "'s")
       (put this-command 'state 0)))))
 
-
-(define-key xah-fly-command-map (kbd "o") 'dgg-xah-toggle-letter-case)
+(define-key xah-fly-command-map (kbd "[") 'dgg-xah-toggle-letter-case)
 
 

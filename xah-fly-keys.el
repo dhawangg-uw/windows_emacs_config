@@ -3825,8 +3825,8 @@ minor modes loaded later may override bindings in this map.")
   (global-set-key (kbd "M-`") 'nil) ; tmm-menubar
   ;(global-set-key (kbd "M-a") 'nil) ; backward-sentence
   (global-set-key (kbd "M-b") 'nil) ; backward-word
-  (global-set-key (kbd "M-c") 'nil) ; capitalize-word
-  (global-set-key (kbd "M-d") 'nil) ;  kill-word
+  ; (global-set-key (kbd "M-c") 'nil) ; capitalize-word
+  ; (global-set-key (kbd "M-d") 'nil) ;  kill-word
   ;(global-set-key (kbd "M-e") 'nil) ; forward-sentence
   (global-set-key (kbd "M-f") 'nil) ; forward-word
   (global-set-key (kbd "M-g") 'nil) ; Prefix Command
