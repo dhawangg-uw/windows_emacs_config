@@ -191,9 +191,6 @@ the entire buffer."
       (when arg
 	(font-lock-fontify-buffer))))
 
-
-
-  
   (define-key org-mode-map (kbd "<f2>") 'org-export-dispatch)
   (define-key org-mode-map (kbd "<kp-subtract>") 'org-insert-structure-template)
   (define-key org-mode-map (kbd "<f10>") 'org-edit-special)

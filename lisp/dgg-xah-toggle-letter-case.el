@@ -40,7 +40,7 @@ Version: 2020-06-26"
     (cond
      ((equal 0 (get this-command 'state))
       (when (eq last-command this-command)
-	(delete-char -2)
+	(delete-char -3)
 	(setq $p1 (mark))
 	(setq $p2 (point)))
       (dgg-add-possessive-append $p1 $p2 "s")
@@ -62,6 +62,12 @@ Version: 2020-06-26"
       (setq $p1 (mark))
       (setq $p2 (point))
       (dgg-add-possessive-append $p1 $p2 "'s")
+      (put this-command 'state 4))
+     ((equal 4 (get this-command 'state))
+      (delete-char -2)
+      (setq $p1 (mark))
+      (setq $p2 (point))
+      (dgg-add-possessive-append $p1 $p2 "ion")
       (put this-command 'state 0)))))
 
 (define-key xah-fly-command-map (kbd "[") 'dgg-xah-toggle-letter-case)
